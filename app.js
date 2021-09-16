@@ -6,7 +6,7 @@ window.inclue = {
     options: [
       {
         name: "seizure",
-        title: "Seizure Safe Profile",
+        title: "Seizure Safe Profilea",
         subTitle: "Eliminates flashes and redusec color",
         description:
           "This profile enables epileptic and seizure prone users to browse safely by eliminating the risk of seizures that result from flashing or blinking animations and risky color combinations.",
@@ -20,7 +20,39 @@ window.inclue = {
       },
     ],
     checkedOptions: [],
-    colorOptions: [{}],
+    colorOptions: [
+      {
+        name: "monochrome",
+        title: "Monochrome",
+      },
+      {
+        name: "lightContrast",
+        title: "Light Contrast",
+      },
+    ],
+    checkedColorOptions: [],
+    contentOptions: [
+      {
+        name: "magnifier",
+        title: "Text Magnifier",
+      },
+      {
+        name: "center",
+        title: "Align Center",
+      },
+    ],
+    checkedContentOptions: [],
+    orientationOptions: [
+      {
+        name: "cursorBlack",
+        title: "Big Black Cursor",
+      },
+      {
+        name: "cursorWhite",
+        title: "Big White Cursor",
+      },
+    ],
+    checkedOrientationColorOptions: [],
   },
   handleOption: function (fnName, value) {
     var fn = window.inclue.features[fnName];
@@ -41,12 +73,14 @@ window.inclue = {
 
         var elements = document.body.childNodes;
         for (var i = 0; i < elements.length; i++) {
-          console.log("elements[i].tagName",elements[i].tagName);
-          if (elements[i].tagName == "DIV" && !elements[i].classList.contains('inclue-app')) {
+          console.log("elements[i].tagName", elements[i].tagName);
+          if (
+            elements[i].tagName == "DIV" &&
+            !elements[i].classList.contains("inclue-app")
+          ) {
             elements[i].style.zoom = 1.1131;
           }
         }
-        
       } else {
         document.documentElement.classList.remove("icl-saturation-contrast");
         document.body.classList.remove("icl-readable-font");
@@ -57,7 +91,7 @@ window.inclue = {
           }
         }
       }
-    }
+    },
   },
   init: function (params) {
     this.loadVendors();
