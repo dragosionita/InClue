@@ -1,0 +1,28 @@
+{
+  "name": "inclue",
+  "version": "1.0.0",
+  "description": "Improve Accessibility for Users Who are Visually Impaired",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp default",
+    "start": "gulp serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dragosionita/InClue.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dragosionita/InClue/issues"
+  },
+  "homepage": "https://github.com/dragosionita/InClue#readme",
+  "devDependencies": {
+    "browser-sync": "^2.27.5",
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-minify": "^3.1.0"
+  }
+}
