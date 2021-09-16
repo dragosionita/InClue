@@ -16,6 +16,28 @@ window.inclue = {
     }],
     checkedOptions: [],
     colorOptions: [{
+      name: 'monochrome',
+      title: 'Monochrome'
+    },
+    {
+      name: 'lightContrast',
+      title: 'Light Contrast',
+    }],
+    contentOptions: [{
+      name: 'magnifier',
+      title: 'Text Magnifier'
+    },
+    {
+      name: 'center',
+      title: 'Align Center',
+    }],
+    orientationOptions: [{
+      name: 'cursorBlack',
+      title: 'Big Black Cursor'
+    },
+    {
+      name: 'cursorWhite',
+      title: 'Big White Cursor',
     }],
   },
   init: function (params) {
