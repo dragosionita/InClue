@@ -204,8 +204,20 @@ window.inclue = {
         document.documentElement.classList.remove("icl-monochrome-contrast");
       }
     },
-    lightContrast: function (toggle) {},
-    darkContrast: function (toggle) {},
+    lightContrast: function (toggle) {
+      if (toggle) {
+        document.documentElement.classList.add("icl-light-contrast");
+      } else {
+        document.documentElement.classList.remove("icl-light-contrast");
+      }
+    },
+    darkContrast: function (toggle) {
+      if (toggle) {
+        document.documentElement.classList.add("icl-dark-contrast");
+      } else {
+        document.documentElement.classList.remove("icl-dark-contrast");
+      }
+    },
     center: function (toggle) {},
     left: function (toggle) {},
     right: function (toggle) {},

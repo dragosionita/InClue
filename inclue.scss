@@ -24,6 +24,18 @@ body {
   filter: grayscale(100%);
 }
 
+.icl-light-contrast {
+  -webkit-text-fill-color: unset !important;
+  color: #1f2533 !important;
+  background-color: #fff !important;
+}
+
+.icl-dark-contrast {
+  -webkit-text-fill-color: unset !important;
+  color: #fff !important;
+  background-color: #181818 !important;
+}
+
 .icl-desaturate {
   filter: saturate(50%);
   -webkit-filter: saturate(50%);
