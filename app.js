@@ -52,7 +52,7 @@ window.inclue = {
     colorOptions: [
       {
         name: "monochrome",
-        title: "Monochromea",
+        title: "Monochrome",
       },
       {
         name: "lightContrast",

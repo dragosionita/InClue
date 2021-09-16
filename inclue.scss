@@ -248,6 +248,7 @@ input:checked + .slider:before {
 .container input:checked ~ .checkmark {
   background-color: #2b6cb0;
   border: 1px solid #2b6cb0;
+  color: white;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
@@ -260,6 +261,7 @@ input:checked + .slider:before {
 /* Show the checkmark when checked */
 .container input:checked ~ .checkmark:after {
   display: block;
+  color: white;
 }
 
 /* Style the checkmark/indicator */
