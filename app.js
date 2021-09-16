@@ -24,13 +24,20 @@ window.inclue = {
           tooltip.style.display = "none";
         }
       }, 500);
-    }
+    },
+    readingMask: function (event) {
+      var readingMaskTop = document.querySelector(".icl-reading-mask-element-top");
+      var readingMaskBottom = document.querySelector(".icl-reading-mask-element-bottom");
+
+      readingMaskTop.style.height = event.clientY - 80 + 'px';
+      readingMaskBottom.style.height = window.innerHeight - event.clientY - 80 + 'px';
+    },
   },
   data: {
     options: [
       {
         name: "seizure",
-        title: "Seizure Safe Profilea",
+        title: "Seizure Safe Profile",
         subTitle: "Eliminates flashes and redusec color",
         description:
           "This profile enables epileptic and seizure prone users to browse safely by eliminating the risk of seizures that result from flashing or blinking animations and risky color combinations.",
@@ -155,17 +162,13 @@ window.inclue = {
     },
     readingMask: function (toggle) {
       if (toggle) {
-        var readingMaskTop = document.querySelector(".icl-reading-mask-element-top");
-        var readingMaskBottom = document.querySelector(".icl-reading-mask-element-bottom");
-        document.body.addEventListener(
-          "mousemove",
-          function (event) {
-            readingMaskTop.style.height = event.clientY - 50 + 'px';
-            readingMaskBottom.style.height = window.innerHeight - event.clientY - 50 + 'px';
-          }
-        );
+        document.querySelector(".icl-reading-mask-element-top").style.display = 'block';
+        document.querySelector(".icl-reading-mask-element-bottom").style.display = 'block';
+        document.addEventListener("mousemove", this.inclue.handlers.readingMask, true);
       } else {
-        document.body.removeEventListener("mousemove");
+        document.removeEventListener("mousemove", this.inclue.handlers.readingMask, true);
+        document.querySelector(".icl-reading-mask-element-top").style.display = 'none';
+        document.querySelector(".icl-reading-mask-element-bottom").style.display = 'none';
       }
     },
     vision: function (toggle) {

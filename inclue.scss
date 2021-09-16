@@ -50,6 +50,7 @@ body {
 }
 
 .icl-reading-mask-element {
+  display: none;
   position: fixed;
   left: 0;
   right: 0;
@@ -57,7 +58,7 @@ body {
   width: 100%;
   pointer-events: none;
   background-color: rgba(0,0,0,.5);
-  z-index: 100000000000000020000;
+  z-index: 9999999;
 }
 
 .icl-reading-mask-element-top {
