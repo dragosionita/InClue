@@ -1,6 +1,7 @@
 window.inclue = {
   dom: {
     app: document.createElement("div"),
+    magnifier: document.createElement("div"),
   },
   data: {
     options: [
@@ -20,10 +21,11 @@ window.inclue = {
       },
       {
         name: "adhd",
-        title: "ADHD Friendly Profile",
-        subTitle: "More focus and fewer distractions",
-        description: " This profile significantly reduces distractions, to help people with ADHD and Neurodevelopmental disorders browse, read, and focus on the essential elements of the website more easily. "
-      }
+        title: "Cognitive Disability Profile",
+        subTitle: "Assists with reading and focusing",
+        description:
+          " This profile provides various assistive features to help users with cognitive disabilities such as Autism, Dyslexia, CVA, and others, to focus on the essential elements of the website more easily. ",
+      },
     ],
     checkedOptions: [],
     colorOptions: [
@@ -100,11 +102,8 @@ window.inclue = {
         document.documentElement.classList.remove("icl-desaturate");
       }
     },
-    vision: function (toggle) {
+    zoom: function (toggle) {
       if (toggle) {
-        document.documentElement.classList.add("icl-saturation-contrast");
-        document.body.classList.add("icl-readable-font");
-
         var elements = document.body.childNodes;
         for (var i = 0; i < elements.length; i++) {
           console.log("elements[i].tagName", elements[i].tagName);
@@ -116,8 +115,6 @@ window.inclue = {
           }
         }
       } else {
-        document.documentElement.classList.remove("icl-saturation-contrast");
-        document.body.classList.remove("icl-readable-font");
         var elements = document.body.childNodes;
         for (var i = 0; i < elements.length; i++) {
           if (elements[i].tagName == "DIV") {
@@ -126,14 +123,54 @@ window.inclue = {
         }
       }
     },
+    vision: function (toggle) {
+      if (toggle) {
+        document.documentElement.classList.add("icl-saturation-contrast");
+        document.body.classList.add("icl-readable-font");
+        window.inclue.features.zoom(true);
+      } else {
+        document.documentElement.classList.remove("icl-saturation-contrast");
+        document.body.classList.remove("icl-readable-font");
+        window.inclue.features.zoom(false);
+      }
+    },
+    adhd: function (toggle) {
+      if (toggle) {
+        document.documentElement.classList.add("icl-emphasize-links");
+      } else {
+        document.documentElement.classList.remove("icl-emphasize-links");
+      }
+    },
+    magnifier: function (toggle) {
+      var tooltip = document.querySelector(".icl-tooltip");
+      document.addEventListener(
+        "mousemove",
+        function (event) {
+          // highlight the mouseenter target
+          setTimeout(function () {
+            if (event.target.tagName == "P" && event.target.firstChild.nodeValue.trim().length > 2) {
+              console.log("aa",event.target.firstChild.nodeValue);
+              var mouseX = event.clientX;
+              var mouseY = event.clientY;
+              //console.log(mouseX);
+              tooltip.style.display = "block";
+              tooltip.style.top = mouseY + "px";
+              tooltip.style.left = mouseX + "px";
+              tooltip.innerHTML =
+                event.target.firstChild.nodeValue;
+            } else {
+              tooltip.style.display = "none";
+            }
+          }, 500);
+        },
+        false
+      );
+    },
     monochrome: function(toggle) {
     },
     lightContrast: function(toggle) {
     },
     darkContrast: function(toggle) {
-    },
-    magnifier: function(toggle) {
-
     },
     center: function(toggle) {
 
@@ -179,6 +216,9 @@ window.inclue = {
   start: function () {
     this.dom.app.innerHTML = `$APP_TEMPLATE$`;
     this.dom.app.classList.add("inclue-app");
+    this.dom.magnifier.classList.add("icl-tooltip");
+
     document.body.appendChild(this.dom.app);
+    document.body.appendChild(this.dom.magnifier);
   },
 };
