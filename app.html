@@ -41,6 +41,7 @@
         <h3 class="icl-section-title">Content Adjustments</h3>
         <template x-for="contentOption in contentOptions">
           <label>
+            <p x-text="contentOption.name"></p>
             <input type="checkbox" x-on:click="window.inclue.handleOption(contentOption.name, $event.target.checked)" :value="contentOption.name" x-model="checkedContentOptions">
           </label>
         </template>
