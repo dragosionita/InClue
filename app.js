@@ -128,6 +128,7 @@ window.inclue = {
     checkedOrientationOptions: [],
   },
   handleOption: function (fnName, value) {
+    console.log("0000", fnName);
     var fn = this.features[fnName];
     fn(value);
   },
@@ -196,7 +197,13 @@ window.inclue = {
         document.removeEventListener("mousemove", this.inclue.handlers.magnifier, true);
       }
     },
-    monochrome: function (toggle) {},
+    monochrome: function (toggle) {
+      if (toggle) {
+        document.documentElement.classList.add("icl-monochrome-contrast");
+      } else {
+        document.documentElement.classList.remove("icl-monochrome-contrast");
+      }
+    },
     lightContrast: function (toggle) {},
     darkContrast: function (toggle) {},
     center: function (toggle) {},
