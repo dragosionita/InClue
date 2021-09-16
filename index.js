@@ -1,5 +1,5 @@
 require('dotenv').config();
-const Scraper = require('./scraper.js');
+const Scraper = require('./scraper');
 const db = require('./db');
 const express = require('express');
 
@@ -16,7 +16,9 @@ app.get('/images', async (req, res) => {
     'https://www.joyja.com/collections/absorbent-period-panty-brief', 
     'https://www.joyja.com/collections/absorbent-period-panty-thong'
   ];
-  let tag = 'srcset';
+
+  urls = ['https://www.joyja.com/collections/absorbent-period-panty-boy-short/products/emily-ponderosa-pine?variant=39478214230113'];
+  let tags = ['srcset', 'src'];
   let imageUrls = [];
 
   const scraper = new Scraper;
@@ -24,9 +26,12 @@ app.get('/images', async (req, res) => {
   await scraper.openBrowser();
 
   for(const url of urls) {
-    let imgUrls = await scraper.scrapeImages(url, tag);
+    for(const tag of tags) {
+        let imgUrls = await scraper.scrapeImages(url, tag);
 
-    imageUrls.push(...imgUrls);
+        imageUrls.push(...imgUrls);
+        
+    }
   }
 
   scraper.closeBrowser();

@@ -1,13 +1,14 @@
 const puppeteer = require('puppeteer');
 const { JSDOM } = require("jsdom");
+
 class Scraper {
   async autoScroll(page){
     await page.evaluate(async () => {
         await new Promise((resolve, reject) => {
-            var totalHeight = 0;
-            var distance = 100;
-            var timer = setInterval(() => {
-                var scrollHeight = document.body.scrollHeight;
+            let totalHeight = 0;
+            let distance = 100;
+            let timer = setInterval(() => {
+                let scrollHeight = document.body.scrollHeight;
                 window.scrollBy(0, distance);
                 totalHeight += distance;
 
@@ -52,9 +53,28 @@ class Scraper {
 
     let images = Array.from(dom.window.document.getElementsByTagName('img'));
     let imageUrls = [];
-  
-    images.filter(img => img.getAttribute(tag) != null).forEach((img) => { 
-      imageUrls.push('https:' + img.getAttribute(tag)?.match(/\/\/[^ ]+?(?:\.jpg|\.png|\.jpeg)/g)[3]);
+    
+    const uniqueOnly = (value, index, self) => {
+      return self.indexOf(value) === index;
+    }
+
+    images.filter(img => img.getAttribute(tag) != null)
+      .map(img => img.getAttribute(tag))
+      .filter(uniqueOnly)
+      .forEach((img) => {
+        let imgUrl = 'https:' + img.match(/\/\/[^ ]+?(?:\.jpg|\.png|\.jpeg)/g);
+        console.log(imgUrl);
+        if(Array.isArray(imgUrl)) {
+          imageUrls.push(imgUrl[3]);
+        } else {
+          imgUrl.split(',').forEach(im => {
+            if(!im.startsWith('http') && !im.startsWith('https') && im != null) {
+              imageUrls.push('https:' + im);
+            } else {
+              imageUrls.push(im);
+            }
+          })
+        }
     });
     
     return imageUrls;
