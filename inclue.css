@@ -27,13 +27,32 @@ body {
 
 .inclue-widget {
   position: absolute;
-  width: 300px;
+  width: 350px;
   right: 1rem;
   bottom: 3rem;
   padding: 0.5rem;
   border-radius: 4px;
   background-color: #f7fcff;
   border: 1px solid #000;
+}
+
+/*** header */
+.inclue-widget-header {
+  text-align: center;
+}
+
+/*** options */
+.access-option {
+  padding: 12px;
+}
+
+.option-title {
+  margin: 0;
+  float: right;
+}
+
+.option-description {
+  background-color: rebeccapurple;
 }
 
 
