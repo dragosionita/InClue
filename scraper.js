@@ -7,22 +7,26 @@ class Scraper {
   }
 
   async setupPuppeteer() {
-    this.browser = await puppeteer.launch();
-    this.page = await this.browser.newPage();
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
   
-    await this.page.goto(this.url);
+    await page.goto(this.url);
   
-    this.html = await this.page.content();
+    let html = await page.content();
     
-    this.dom = new JSDOM(this.html);
+    let dom = new JSDOM(html);
 
     await this.browser.close();
+
+    return {
+      dom, html
+    }
   }
 
   async scrapeImages (tag) {
-    await this.setupPuppeteer();
+    const { dom } = await this.setupPuppeteer();
 
-    let images = Array.from(this.dom.window.document.getElementsByTagName('img'));
+    let images = Array.from(dom.window.document.getElementsByTagName('img'));
     let imageUrls = [];
   
     images.forEach((img) => { 
