@@ -2,6 +2,8 @@ window.inclue = {
   dom: {
     app: document.createElement("div"),
     magnifier: document.createElement("div"),
+    readingMaskTop: document.createElement("div"),
+    readingMaskBottom: document.createElement("div"),
   },
   data: {
     options: [
@@ -131,20 +133,18 @@ window.inclue = {
       }
     },
     readingMask: function (toggle) {
-      console.log(toggle)
       if (toggle) {
-        var elem = document.createElement('div');
-        elem.classList.add("icl-reading-mask-element", "icl-reading-mark-element-top");
-        document.body.appendChild(elem);
-
-        elem = document.createElement('div');
-        elem.classList.add("icl-reading-mask-element", "icl-reading-mark-element-bottom");
-        document.body.appendChild(elem);
+        var readingMaskTop = document.querySelector(".icl-reading-mask-element-top");
+        var readingMaskBottom = document.querySelector(".icl-reading-mask-element-bottom");
+        document.body.addEventListener(
+          "mousemove",
+          function (event) {
+            readingMaskTop.style.height = event.clientY - 50 + 'px';
+            readingMaskBottom.style.height = window.innerHeight - event.clientY - 50 + 'px';
+          }
+        );
       } else {
-        const elements = document.getElementsByClassName("icl-reading-mask-element");
-        while(elements.length > 0){
-          elements[0].parentNode.removeChild(elements[0]);
-        }
+        document.body.removeEventListener("mousemove");
       }
     },
     vision: function (toggle) {
@@ -241,8 +241,13 @@ window.inclue = {
     this.dom.app.innerHTML = `$APP_TEMPLATE$`;
     this.dom.app.classList.add("inclue-app");
     this.dom.magnifier.classList.add("icl-tooltip");
+    this.dom.readingMaskTop.classList.add("icl-reading-mask-element", "icl-reading-mask-element-top");
+    this.dom.readingMaskBottom.classList.add("icl-reading-mask-element", "icl-reading-mask-element-bottom");
+
 
     document.body.appendChild(this.dom.app);
     document.body.appendChild(this.dom.magnifier);
+    document.body.appendChild(this.dom.readingMaskTop);
+    document.body.appendChild(this.dom.readingMaskBottom);
   },
 };
