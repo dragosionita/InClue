@@ -5,6 +5,27 @@ window.inclue = {
     readingMaskTop: document.createElement("div"),
     readingMaskBottom: document.createElement("div"),
   },
+  handlers: {
+    magnifier: function (event) {
+      var tooltip = document.querySelector(".icl-tooltip");
+      setTimeout(function () {
+        if (
+          event.target.tagName == "P" &&
+          event.target.firstChild.nodeValue.trim().length > 2
+        ) {
+          var mouseX = event.clientX;
+          var mouseY = event.clientY;
+
+          tooltip.style.display = "block";
+          tooltip.style.top = mouseY + "px";
+          tooltip.style.left = mouseX + "px";
+          tooltip.innerHTML = event.target.firstChild.nodeValue;
+        } else {
+          tooltip.style.display = "none";
+        }
+      }, 500);
+    }
+  },
   data: {
     options: [
       {
@@ -48,8 +69,8 @@ window.inclue = {
       },
       {
         name: "darkContrast",
-        title: "Dark Contrast"
-      }
+        title: "Dark Contrast",
+      },
     ],
     checkedColorOptions: [],
     contentOptions: [
@@ -63,20 +84,20 @@ window.inclue = {
       },
       {
         name: "left",
-        title: "Align Left"
+        title: "Align Left",
       },
       {
         name: "right",
-        title: "Align Right"
+        title: "Align Right",
       },
       {
         name: "lineHeight",
-        title: "Adjust Line Height"
+        title: "Adjust Line Height",
       },
       {
         name: "letterSpacing",
-        title: "Adjust Letter Spacing"
-      }
+        title: "Adjust Letter Spacing",
+      },
     ],
     checkedContentOptions: [],
     orientationOptions: [
@@ -100,7 +121,7 @@ window.inclue = {
     checkedOrientationOptions: [],
   },
   handleOption: function (fnName, value) {
-    var fn = window.inclue.features[fnName];
+    var fn = this.features[fnName];
     fn(value);
   },
   features: {
@@ -166,63 +187,24 @@ window.inclue = {
       }
     },
     magnifier: function (toggle) {
-      var tooltip = document.querySelector(".icl-tooltip");
-      document.addEventListener(
-        "mousemove",
-        function (event) {
-          // highlight the mouseenter target
-          setTimeout(function () {
-            if (event.target.tagName == "P" && event.target.firstChild.nodeValue.trim().length > 2) {
-              console.log("aa",event.target.firstChild.nodeValue);
-              var mouseX = event.clientX;
-              var mouseY = event.clientY;
-              //console.log(mouseX);
-              tooltip.style.display = "block";
-              tooltip.style.top = mouseY + "px";
-              tooltip.style.left = mouseX + "px";
-              tooltip.innerHTML =
-                event.target.firstChild.nodeValue;
-            } else {
-              tooltip.style.display = "none";
-            }
-          }, 500);
-        },
-        false
-      );
+      if (toggle) {
+        document.addEventListener("mousemove", this.inclue.handlers.magnifier, true);
+      } else {
+        document.removeEventListener("mousemove", this.inclue.handlers.magnifier, true);
+      }
     },
-    monochrome: function(toggle) {
-    },
-    lightContrast: function(toggle) {
-    },
-    darkContrast: function(toggle) {
-    },
-    center: function(toggle) {
-
-    },
-    left: function(toggle) {
-
-    },
-    right: function(toggle) {
-
-    },
-    lineHeight: function(toggle) {
-
-    }, 
-    letterSpacing: function(toggle) {
-
-    },
-    cursorBlack: function(toggle) {
-
-    },
-    cursorWhite: function(toggle) {
-
-    },
-    hideImages: function(toggle) {
-
-    },
-    readingGuide: function(toggle) {
-
-    },
+    monochrome: function (toggle) {},
+    lightContrast: function (toggle) {},
+    darkContrast: function (toggle) {},
+    center: function (toggle) {},
+    left: function (toggle) {},
+    right: function (toggle) {},
+    lineHeight: function (toggle) {},
+    letterSpacing: function (toggle) {},
+    cursorBlack: function (toggle) {},
+    cursorWhite: function (toggle) {},
+    hideImages: function (toggle) {},
+    readingGuide: function (toggle) {},
   },
   init: function (params) {
     this.loadVendors();
