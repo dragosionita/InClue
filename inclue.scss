@@ -49,6 +49,28 @@ body {
   font-family: Arial,Helvetica,sans-serif !important;
 }
 
+.icl-reading-mask-element {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 100%;
+  pointer-events: none;
+  background-color: rgba(0,0,0,.5);
+  z-index: 9999999;
+}
+
+.icl-reading-mask-element-top {
+  top: 0;
+  bottom: auto;
+}
+
+.icl-reading-mask-element-bottom {
+  top: auto;
+  bottom: 0;
+}
+
 .inclue-app {
   position: fixed;
   display: block;
