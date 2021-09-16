@@ -93,6 +93,21 @@ body {
   z-index: 9999999;
 }
 
+.icl-reading-guide {
+  display: none;
+  box-sizing: border-box;
+  background: #000;
+  width: 40vw!important;
+  min-width: 200px!important;
+  position: absolute!important;
+  height: 12px!important;
+  border: solid 3px #fff300;
+  border-radius: 5px;
+  top: 20px;
+  z-index: 2147483647;
+  transform: translateX(-50%);
+}
+
 .icl-reading-mask-element-top {
   top: 0;
   bottom: auto;

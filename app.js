@@ -4,6 +4,7 @@ window.inclue = {
     magnifier: document.createElement("div"),
     readingMaskTop: document.createElement("div"),
     readingMaskBottom: document.createElement("div"),
+    readingGuide: document.createElement("div"),
   },
   handlers: {
     magnifier: function (event) {
@@ -31,6 +32,11 @@ window.inclue = {
 
       readingMaskTop.style.height = event.clientY - 80 + 'px';
       readingMaskBottom.style.height = window.innerHeight - event.clientY - 80 + 'px';
+    },
+    readingGuide: function (event) {
+      var readingGuide = document.querySelector(".icl-reading-guide");
+      readingGuide.style.top = event.clientY + 150 + 'px';
+      readingGuide.style.left = event.clientX + 'px';
     },
   },
   data: {
@@ -268,7 +274,15 @@ window.inclue = {
         }
       }
     },
-    readingGuide: function (toggle) {},
+    readingGuide: function (toggle) {
+      if (toggle) {
+        document.querySelector('.icl-reading-guide').style.display = 'block';
+        document.addEventListener("mousemove", this.inclue.handlers.readingGuide, true);
+      } else {
+        document.querySelector('.icl-reading-guide').style.display = 'none';
+        document.removeEventListener("mousemove", this.inclue.handlers.readingGuide, true);
+      }
+    },
   },
   init: function (params) {
     this.loadVendors();
@@ -289,11 +303,13 @@ window.inclue = {
     this.dom.magnifier.classList.add("icl-tooltip");
     this.dom.readingMaskTop.classList.add("icl-reading-mask-element", "icl-reading-mask-element-top");
     this.dom.readingMaskBottom.classList.add("icl-reading-mask-element", "icl-reading-mask-element-bottom");
+    this.dom.readingGuide.classList.add('icl-reading-guide')
 
 
     document.body.appendChild(this.dom.app);
     document.body.appendChild(this.dom.magnifier);
     document.body.appendChild(this.dom.readingMaskTop);
     document.body.appendChild(this.dom.readingMaskBottom);
+    document.body.appendChild(this.dom.readingGuide);
   },
 };
