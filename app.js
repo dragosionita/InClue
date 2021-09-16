@@ -265,12 +265,12 @@ window.inclue = {
       if (toggle) {
         var images = document.getElementsByTagName('img');
         for (i = 0; i < images.length;i++ ) {
-          images[i].style.display = "none";
+          images[i].style.visibility = 'hidden';
         }
       } else {
         var images = document.getElementsByTagName('img');
         for (i = 0; i < images.length;i++ ) {
-          images[i].style.display = "block";
+          images[i].style.visibility = 'visible';
         }
       }
     },
