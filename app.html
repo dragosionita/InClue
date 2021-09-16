@@ -4,13 +4,13 @@
   </div>
   <div class="inclue-widget" x-show="open" x-transition @click.outside="open = false">
     <div class="inclue-widget-header">
-      <h2>ZZccessibility Adjustmentsa</h2>
+      <h2>Accessibility Adjustmentsa</h2>
     </div>
     <div class="inclue-widget-body" x-data="window.inclue.data">
       <template x-for="option in options">
           <div x-data class="access-option">
             <label class="switch">
-              <input type="checkbox" :value="option.name" x-model="checkedOptions">
+              <input type="checkbox" x-on:click="window.inclue.handleOption(option.name, $event.target.checked)" :value="option.name" x-model="checkedOptions">
               <span class="slider round"></span>
             </label>
             <div x-data class="icl-option-title">
@@ -22,7 +22,6 @@
             </div>
           </div>
       </template>
-
     </div>
   </span>
 </div>

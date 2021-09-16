@@ -52,7 +52,7 @@ gulp.task("serve", function (done) {
       baseDir: "./",
     },
   });
-  gulp.watch("*.js", gulp.series("pack-js"));
+  gulp.watch("./app.js", gulp.series("pack-js", "reload"));
   gulp.watch("./*.scss", gulp.series("pack-style", "reload"));
   gulp.watch("./app.html", gulp.series("pack-js", "reload"));
   done();

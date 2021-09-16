@@ -2,6 +2,26 @@ body {
   margin: 0;
 }
 
+.icl-desaturate {
+  filter: saturate(50%);
+  -webkit-filter: saturate(50%);
+  -moz-filter: saturate(50%);
+  -ms-filter: saturate(50%);
+  -o-filter: saturate(50%);
+}
+
+.icl-saturation-contrast {
+  filter: saturate(200%);
+  -webkit-filter: saturate(200%);
+  -moz-filter: saturate(200%);
+  -ms-filter: saturate(200%);
+  -o-filter: saturate(200%);
+}
+
+.icl-readable-font {
+  font-family: Arial,Helvetica,sans-serif !important;
+}
+
 .inclue-app {
   position: fixed;
   display: block;
