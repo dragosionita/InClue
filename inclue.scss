@@ -22,6 +22,27 @@ body {
   font-family: Arial,Helvetica,sans-serif !important;
 }
 
+.icl-reading-mask-element {
+  position: fixed;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 100%;
+  pointer-events: none;
+  background-color: rgba(0,0,0,.5);
+  z-index: 100000000000000020000;
+}
+
+.acsb-reading-mark-element-top {
+  top: 0;
+  bottom: auto;
+}
+
+.acsb-reading-mark-element-element {
+  top: auto;
+  bottom: 0;
+}
+
 .inclue-app {
   position: fixed;
   display: block;

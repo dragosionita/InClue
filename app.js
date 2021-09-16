@@ -16,7 +16,14 @@ window.inclue = {
         title: "Vision Impaired Profile",
         subTitle: "Enhances the website's visuals",
         description:
-          " This profile adjusts the website, so that it is accessible to the majority of visual impairments such as Degrading Eyesight, Tunnel Vision, Cataract, Glaucoma, and others. ",
+          "This profile adjusts the website, so that it is accessible to the majority of visual impairments such as Degrading Eyesight, Tunnel Vision, Cataract, Glaucoma, and others. ",
+      },
+      {
+        name: "readingMask",
+        title: "ADHD Friendly Profile",
+        subTitle: "Enhances the website's visuals",
+        description:
+          "This profile significantly reduces distractions, to help people with ADHD and Neurodevelopmental disorders browse, read, and focus on the essential elements of the website more easily.",
       },
     ],
     checkedOptions: [],
@@ -92,6 +99,23 @@ window.inclue = {
         }
       }
     },
+    readingMask: function (toggle) {
+      console.log(toggle)
+      if (toggle) {
+        var elem = document.createElement('div');
+        elem.classList.add("icl-reading-mask-element", "icl-reading-mark-element-top");
+        document.body.appendChild(elem);
+
+        elem = document.createElement('div');
+        elem.classList.add("icl-reading-mask-element", "icl-reading-mark-element-bottom");
+        document.body.appendChild(elem);
+      } else {
+        const elements = document.getElementsByClassName("icl-reading-mask-element");
+        while(elements.length > 0){
+          elements[0].parentNode.removeChild(elements[0]);
+        }
+      }
+    }
   },
   init: function (params) {
     this.loadVendors();
