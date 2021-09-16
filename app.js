@@ -14,7 +14,9 @@ window.inclue = {
       subTitle: 'Enhances the website\'s visuals',
       description: ' This profile adjusts the website, so that it is accessible to the majority of visual impairments such as Degrading Eyesight, Tunnel Vision, Cataract, Glaucoma, and others. '
     }],
-    checkedOptions: ['vvv']
+    checkedOptions: [],
+    colorOptions: [{
+    }],
   },
   init: function (params) {
     this.loadVendors();
@@ -46,17 +48,16 @@ window.inclue = {
                   <input type="checkbox" :value="option.name" x-model="checkedOptions">
                   <span class="slider round"></span>
                 </label>
-                <h4 class="option-title" x-text="option.title"></h4>
-                <p class="option-title" x-text="option.subTitle"></p>
-                <div x-data x-show="checkedOptions.includes(option.name)" x-transition>
+                <div x-data class="icl-option-title">
+                  <h4 x-text="option.title"></h4>
+                  <p x-text="option.subTitle"></p>
+                </div>
+                <div class="icl-option-description" x-data x-show="checkedOptions.includes(option.name)" x-transition>
                   <p x-text="option.description"></p>
                 </div>
               </div>
           </template>
 
-          <span x-text="JSON.stringify(checkedOptions)"></span>
-          
-        <p>tral la la</p>
         </div>
       </span>
     </div>`;

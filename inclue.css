@@ -7,20 +7,18 @@ body {
   display: block;
   bottom: 0;
   right: 0;
-
-  .inclue-trigger {
-    width: 50px;
-    height: 50px;
-    margin-bottom: 20px;
-    margin-right: 20px;
-  }
 }
 
 .inclue-app * {
   box-sizing: border-box; 
 }
 
-
+.inclue-trigger {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+}
 
 .inclue-trigger .widget-icon {
   width: 100%;
@@ -28,53 +26,33 @@ body {
 }
 
 .inclue-widget {
-  overflow: scroll;
-  height: 550px;
   position: absolute;
   width: 350px;
   right: 1rem;
-  bottom: 5rem;
+  bottom: 3rem;
+  padding: 0.5rem;
   border-radius: 4px;
   background-color: #f7fcff;
-  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+  border: 1px solid #000;
 }
 
 /*** header */
 .inclue-widget-header {
   text-align: center;
-  background-color: #2b6cb0;
-  color: white;
-  margin: 0;
-  padding: 16px;
-}
-
-/*** body */
-.inclue-widget-body {
-  padding: 0.5rem;
 }
 
 /*** options */
 .access-option {
   padding: 12px;
-  margin-top: 3px;
-  border-bottom: 1px solid #dcdce6;
 }
 
-.icl-option-title {
+.option-title {
   margin: 0;
   float: right;
-
-  p, h4 {
-    margin: 0;
-  }
 }
 
-.icl-option-description {
-  padding-top: 8px;
-  
-  p {
-    margin: 0;
-  }
+.option-description {
+  background-color: rebeccapurple;
 }
 
 
@@ -103,7 +81,6 @@ body {
   background-color: #ccc;
   -webkit-transition: .4s;
   transition: .4s;
-  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%), 0 3px 10px 0 rgb(0 0 0 / 19%);
 }
 
 .slider:before {
@@ -119,11 +96,11 @@ body {
 }
 
 input:checked + .slider {
-  background-color: #2b6cb0;
+  background-color: #2196F3;
 }
 
 input:focus + .slider {
-  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%), 0 3px 10px 0 rgb(0 0 0 / 19%);
+  box-shadow: 0 0 1px #2196F3;
 }
 
 input:checked + .slider:before {
