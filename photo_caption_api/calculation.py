@@ -13,14 +13,7 @@ from model import Request, Response, ImageResponse
 from PIL import Image
 
 
-# load the model
-model = VGG16()
-
-# re-structure the model
-model = Model(inputs=model.inputs, outputs=model.layers[-2].output)
-
-
-def extract_features(image):
+def extract_features(image, vgg):
 	# load the photo
 	image = Image.open(io.BytesIO(image))
 	image = image.convert('RGB')
@@ -34,7 +27,7 @@ def extract_features(image):
 	# prepare the image for the VGG model
 	image = preprocess_input(image)
 	# get features
-	feature = model.predict(image, verbose=0)
+	feature = vgg.predict(image, verbose=0)
 	return feature
 
 
@@ -74,13 +67,18 @@ def generate_desc(model, tokenizer, photo, max_length):
 
 
 def get_response(model, tokenizer, max_length, input_req: Request) -> Response:
+	# load the model
+	vgg = VGG16()
+	# re-structure the model
+	vgg = Model(inputs=vgg.inputs, outputs=vgg.layers[-2].output)
+
 	images = []
 	for img_url in input_req.images:
 		response = requests.get(img_url)
 		if response.status_code != 200:
 			continue
 		# load and prepare the photograph
-		photo = extract_features(response.content)
+		photo = extract_features(response.content, vgg)
 		# generate description
 		description = generate_desc(model, tokenizer, photo, max_length)
 		description = ' '.join(description.split(' ')[1:-1])

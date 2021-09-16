@@ -11,13 +11,11 @@ app = FastAPI(openapi_url="/openapi.json")
 # pre-define the max sequence length (from training)
 MAX_LENGTH = 12
 
-# load the tokenizer
-tokenizer = load(open('model/tokenizer.pkl', 'rb'))
-
-# load the model
-model = load_model('model/model.h5')
-
 
 @app.post("/photo_caption", response_model=Response)
 def predict(input_req: Request) -> Response:
+	# load the tokenizer
+	tokenizer = load(open('model/tokenizer.pkl', 'rb'))
+	# load the model
+	model = load_model('model/model.h5')
 	return get_response(model, tokenizer, MAX_LENGTH, input_req)
