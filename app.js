@@ -2,6 +2,8 @@ window.inclue = {
   dom: {
     app: document.createElement("div"),
     magnifier: document.createElement("div"),
+    readingMaskTop: document.createElement("div"),
+    readingMaskBottom: document.createElement("div"),
   },
   handlers: {
     magnifier: function (event) {
@@ -22,13 +24,20 @@ window.inclue = {
           tooltip.style.display = "none";
         }
       }, 500);
-    }
+    },
+    readingMask: function (event) {
+      var readingMaskTop = document.querySelector(".icl-reading-mask-element-top");
+      var readingMaskBottom = document.querySelector(".icl-reading-mask-element-bottom");
+
+      readingMaskTop.style.height = event.clientY - 80 + 'px';
+      readingMaskBottom.style.height = window.innerHeight - event.clientY - 80 + 'px';
+    },
   },
   data: {
     options: [
       {
         name: "seizure",
-        title: "Seizure Safe Profilea",
+        title: "Seizure Safe Profile",
         subTitle: "Eliminates flashes and redusec color",
         description:
           "This profile enables epileptic and seizure prone users to browse safely by eliminating the risk of seizures that result from flashing or blinking animations and risky color combinations.",
@@ -38,7 +47,14 @@ window.inclue = {
         title: "Vision Impaired Profile",
         subTitle: "Enhances the website's visuals",
         description:
-          " This profile adjusts the website, so that it is accessible to the majority of visual impairments such as Degrading Eyesight, Tunnel Vision, Cataract, Glaucoma, and others. ",
+          "This profile adjusts the website, so that it is accessible to the majority of visual impairments such as Degrading Eyesight, Tunnel Vision, Cataract, Glaucoma, and others. ",
+      },
+      {
+        name: "readingMask",
+        title: "ADHD Friendly Profile",
+        subTitle: "Enhances the website's visuals",
+        description:
+          "This profile significantly reduces distractions, to help people with ADHD and Neurodevelopmental disorders browse, read, and focus on the essential elements of the website more easily.",
       },
       {
         name: "adhd",
@@ -145,6 +161,17 @@ window.inclue = {
         }
       }
     },
+    readingMask: function (toggle) {
+      if (toggle) {
+        document.querySelector(".icl-reading-mask-element-top").style.display = 'block';
+        document.querySelector(".icl-reading-mask-element-bottom").style.display = 'block';
+        document.addEventListener("mousemove", this.inclue.handlers.readingMask, true);
+      } else {
+        document.removeEventListener("mousemove", this.inclue.handlers.readingMask, true);
+        document.querySelector(".icl-reading-mask-element-top").style.display = 'none';
+        document.querySelector(".icl-reading-mask-element-bottom").style.display = 'none';
+      }
+    },
     vision: function (toggle) {
       if (toggle) {
         document.documentElement.classList.add("icl-saturation-contrast");
@@ -206,8 +233,13 @@ window.inclue = {
     this.dom.app.innerHTML = `$APP_TEMPLATE$`;
     this.dom.app.classList.add("inclue-app");
     this.dom.magnifier.classList.add("icl-tooltip");
+    this.dom.readingMaskTop.classList.add("icl-reading-mask-element", "icl-reading-mask-element-top");
+    this.dom.readingMaskBottom.classList.add("icl-reading-mask-element", "icl-reading-mask-element-bottom");
+
 
     document.body.appendChild(this.dom.app);
     document.body.appendChild(this.dom.magnifier);
+    document.body.appendChild(this.dom.readingMaskTop);
+    document.body.appendChild(this.dom.readingMaskBottom);
   },
 };

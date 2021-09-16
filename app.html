@@ -31,8 +31,9 @@
       <div x-data class="icl-section-card">
         <h3 class="icl-section-title">Color Adjustments</h3>
         <template x-for="colorOption in colorOptions">
-          <label>
-            <input type="checkbox" x-on:click="window.inclue.handleOption(colorOption.name, $event.target.checked)" :value="colorOption.name" x-model="checkedColorOptions">
+          <label class="container">
+            <input type="checkbox" checked="checked" x-on:click="window.inclue.handleOption(colorOption.name, $event.target.checked)" :value="colorOption.name" x-model="checkedColorOptions">
+            <span class="checkmark" x-text="colorOption.title"></span>
           </label>
         </template>
       </div>
@@ -40,9 +41,9 @@
       <div x-data class="icl-section-card">
         <h3 class="icl-section-title">Content Adjustments</h3>
         <template x-for="contentOption in contentOptions">
-          <label>
-            <p x-text="contentOption.name"></p>
-            <input type="checkbox" x-on:click="window.inclue.handleOption(contentOption.name, $event.target.checked)" :value="contentOption.name" x-model="checkedContentOptions">
+          <label  class="container">
+            <input type="checkbox" checked="checked" x-on:click="window.inclue.handleOption(contentOption.name, $event.target.checked)" :value="contentOption.name" x-model="checkedContentOptions">
+            <span class="checkmark" x-text="contentOption.title"></span>
           </label>
         </template>
       </div>
@@ -50,8 +51,9 @@
       <div x-data class="icl-section-card">
         <h3 class="icl-section-title">Orientation Adjustments</h3>
         <template x-for="orientationOption in orientationOptions">
-          <label>
-            <input type="checkbox" x-on:click="window.inclue.handleOption(orientationOption.name, $event.target.checked)" :value="orientationOption.name" x-model="checkedOrientationOptions">
+          <label  class="container">
+            <input type="checkbox" checked="checked" x-on:click="window.inclue.handleOption(orientationOption.name, $event.target.checked)" :value="orientationOption.name" x-model="checkedOrientationOptions">
+            <span class="checkmark" x-text="orientationOption.title"></span>
           </label>
         </template>
       </div>
