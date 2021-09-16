@@ -1,0 +1,26 @@
+{
+  "name": "inclue",
+  "version": "1.0.0",
+  "description": "Improve Accessibility for Users Who are Visually Impaired",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dragosionita/InClue.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dragosionita/InClue/issues"
+  },
+  "homepage": "https://github.com/dragosionita/InClue#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "jsdom": "^17.0.0",
+    "playwright": "^1.14.1",
+    "puppeteer": "^10.2.0"
+  }
+}
