@@ -118,7 +118,7 @@ window.inclue = {
           elements[0].parentNode.removeChild(elements[0]);
         }
       }
-    }
+    },
     vision: function (toggle) {
       if (toggle) {
         document.documentElement.classList.add("icl-saturation-contrast");
