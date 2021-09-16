@@ -36,6 +36,26 @@ body {
   background-color: #181818 !important;
 }
 
+.icl-text-align-center {
+  text-align: center !important;
+}
+
+.icl-text-align-left {
+  text-align: left !important;
+}
+
+.icl-text-align-right {
+  text-align: right !important;
+}
+
+.icl-big-black-cursor {
+  cursor: url(https://acsbapp.com/apps/app/dist/media/cursor.svg),default !important;
+}
+
+.icl-big-white-cursor {
+  cursor: url(https://acsbapp.com/apps/app/dist/media/cursor2.svg),default !important;
+}
+
 .icl-desaturate {
   filter: saturate(50%);
   -webkit-filter: saturate(50%);

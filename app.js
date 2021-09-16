@@ -241,9 +241,33 @@ window.inclue = {
     },
     lineHeight: function (toggle) {},
     letterSpacing: function (toggle) {},
-    cursorBlack: function (toggle) {},
-    cursorWhite: function (toggle) {},
-    hideImages: function (toggle) {},
+    cursorBlack: function (toggle) {
+      if (toggle) {
+        document.documentElement.classList.add("icl-big-black-cursor");
+      } else {
+        document.documentElement.classList.remove("icl-big-black-cursor");
+      }
+    },
+    cursorWhite: function (toggle) {
+      if (toggle) {
+        document.documentElement.classList.add("icl-big-white-cursor");
+      } else {
+        document.documentElement.classList.remove("icl-big-white-cursor");
+      }
+    },
+    hideImages: function (toggle) {
+      if (toggle) {
+        var images = document.getElementsByTagName('img');
+        for (i = 0; i < images.length;i++ ) {
+          images[i].style.display = "none";
+        }
+      } else {
+        var images = document.getElementsByTagName('img');
+        for (i = 0; i < images.length;i++ ) {
+          images[i].style.display = "block";
+        }
+      }
+    },
     readingGuide: function (toggle) {},
   },
   init: function (params) {
