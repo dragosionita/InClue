@@ -1,63 +1,61 @@
-var gulp = require('gulp');
-var concat = require('gulp-concat');
-var minify = require('gulp-minify');
-var cleanCss = require('gulp-clean-css');
-var sass = require('gulp-sass')(require('sass'));
-var browserSync = require('browser-sync').create();
+var fs = require("fs");
+var gulp = require("gulp");
+var concat = require("gulp-concat");
+const replace = require("gulp-replace");
+var minify = require("gulp-minify");
+var cleanCss = require("gulp-clean-css");
+var sass = require("gulp-sass")(require("sass"));
+var browserSync = require("browser-sync").create();
 
-gulp.task('browser-sync', function() {
+gulp.task("browser-sync", function () {
   browserSync.init({
-      server: {
-          baseDir: "./"
-      }
+    server: {
+      baseDir: "./",
+    },
   });
 });
 
-gulp.task('pack-js', function () {    
-    return gulp.src(['app.js'])
-        .pipe(minify({
-            ext:{
-                min:'.js'
-            },
-            noSource: true,
-            mangle: true
-        }))
-        .pipe(gulp.dest('build'));
-});
- 
-gulp.task('pack-style', function () {
-    return gulp.src(['inclue.scss'])
-        .pipe(sass())
-        .pipe(cleanCss())
-        .pipe(gulp.dest('build'));
+gulp.task("pack-js", function () {
+  var fileContent = fs.readFileSync("app.html", "utf8");
+  return (
+    gulp
+      .src(["app.js"])
+      .pipe(minify({
+          ext:{
+              min:'.js'
+          },
+          noSource: true,
+          mangle: true
+      }))
+      .pipe(replace("$APP_TEMPLATE$", fileContent))
+      .pipe(gulp.dest("build"))
+  );
 });
 
-gulp.task('serve', gulp.series['pack-style'], function() {
-
-  browserSync.init({
-      server: "./app"
-  });
-
-  gulp.watch("*.scss", ['pack-style']);
-  gulp.watch("*.html").on('change', browserSync.reload);
-  gulp.watch("*.js", ['pack-js']);
+gulp.task("pack-style", function () {
+  return gulp
+    .src(["inclue.scss"])
+    .pipe(sass())
+    .pipe(cleanCss())
+    .pipe(gulp.dest("build"));
 });
 
-gulp.task('reload', function (done) {
+gulp.task("reload", function (done) {
   browserSync.reload();
   done();
 });
 
 // Static Server and watching scss/html files
-gulp.task('serve', function(done){
+gulp.task("serve", function (done) {
   browserSync.init({
-      server: {
-          baseDir: "./"
-      }
+    server: {
+      baseDir: "./",
+    },
   });
-  gulp.watch("./*.scss", gulp.series('pack-style', 'reload'));
-  gulp.watch("./*.html", browserSync.reload);
+  gulp.watch("*.js", gulp.series("pack-js"));
+  gulp.watch("./*.scss", gulp.series("pack-style", "reload"));
+  gulp.watch("./app.html", gulp.series("pack-js", "reload"));
   done();
 });
- 
-gulp.task('default', gulp.series('pack-js', 'pack-style'));
+
+gulp.task("default", gulp.series("pack-js", "pack-style"));
