@@ -1,38 +1,59 @@
 const puppeteer = require('puppeteer');
 const { JSDOM } = require("jsdom");
-
 class Scraper {
-  constructor(url) {
-    this.url = url;
+  async autoScroll(page){
+    await page.evaluate(async () => {
+        await new Promise((resolve, reject) => {
+            var totalHeight = 0;
+            var distance = 100;
+            var timer = setInterval(() => {
+                var scrollHeight = document.body.scrollHeight;
+                window.scrollBy(0, distance);
+                totalHeight += distance;
+
+                if(totalHeight >= scrollHeight){
+                    clearInterval(timer);
+                    resolve();
+                }
+            }, 100);
+        });
+    });
   }
 
-  async setupPuppeteer() {
-    const browser = await puppeteer.launch();
-    const page = await browser.newPage();
+  async openBrowser() {
+    this.browser = await puppeteer.launch();
+    this.page = await this.browser.newPage();
+  }
+
+  async setupPuppeteer(url) {
+    await this.page.goto(url);
+
+    await this.page.evaluate(_ => {
+      window.scrollBy(0, window.innerHeight);
+    });
+
+    await this.autoScroll(this.page);
   
-    await page.goto(this.url);
-  
-    let html = await page.content();
+    let html = await this.page.content();
     
     let dom = new JSDOM(html);
-
-    await this.browser.close();
 
     return {
       dom, html
     }
   }
 
-  async scrapeImages (tag) {
-    const { dom } = await this.setupPuppeteer();
+  async closeBrowser() {
+    await this.browser.close();
+  }
+
+  async scrapeImages (url, tag) {
+    const { dom } = await this.setupPuppeteer(url);
 
     let images = Array.from(dom.window.document.getElementsByTagName('img'));
     let imageUrls = [];
   
-    images.forEach((img) => { 
-      if (img.getAttribute(tag) == null)
-        return;
-  
+    images.filter(img => img.getAttribute(tag) != null).forEach((img) => { 
       imageUrls.push('https:' + img.getAttribute(tag)?.match(/\/\/[^ ]+?(?:\.jpg|\.png|\.jpeg)/g)[3]);
     });
     
