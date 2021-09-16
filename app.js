@@ -218,9 +218,27 @@ window.inclue = {
         document.documentElement.classList.remove("icl-dark-contrast");
       }
     },
-    center: function (toggle) {},
-    left: function (toggle) {},
-    right: function (toggle) {},
+    center: function (toggle) {
+      if (toggle) {
+        document.documentElement.classList.add("icl-text-align-center");
+      } else {
+        document.documentElement.classList.remove("icl-text-align-center");
+      }
+    },
+    left: function (toggle) {
+      if (toggle) {
+        document.documentElement.classList.add("icl-text-align-left");
+      } else {
+        document.documentElement.classList.remove("icl-text-align-left");
+      }
+    },
+    right: function (toggle) {
+      if (toggle) {
+        document.documentElement.classList.add("icl-text-align-right");
+      } else {
+        document.documentElement.classList.remove("icl-text-align-right");
+      }
+    },
     lineHeight: function (toggle) {},
     letterSpacing: function (toggle) {},
     cursorBlack: function (toggle) {},
