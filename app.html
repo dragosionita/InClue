@@ -31,30 +31,27 @@
       <div x-data class="icl-section-card">
         <h3 class="icl-section-title">Color Adjustments</h3>
         <template x-for="colorOption in colorOptions">
-          <div x-data class="icl-button-options">
-            <button class="icl-option-button" x-text="colorOption.title">
-            </button>
-          </div>
+          <label>
+            <input type="checkbox" x-on:click="window.inclue.handleOption(colorOption.name, $event.target.checked)" :value="colorOption.name" x-model="checkedColorOptions">
+          </label>
         </template>
       </div>
 
       <div x-data class="icl-section-card">
         <h3 class="icl-section-title">Content Adjustments</h3>
         <template x-for="contentOption in contentOptions">
-          <div x-data class="icl-button-options">
-            <button class="icl-option-button" x-text="contentOption.title">
-            </button>
-          </div>
+          <label>
+            <input type="checkbox" x-on:click="window.inclue.handleOption(contentOption.name, $event.target.checked)" :value="contentOption.name" x-model="checkedContentOptions">
+          </label>
         </template>
       </div>
-
+      
       <div x-data class="icl-section-card">
         <h3 class="icl-section-title">Orientation Adjustments</h3>
         <template x-for="orientationOption in orientationOptions">
-          <div x-data class="icl-button-options">
-            <button class="icl-option-button" x-text="orientationOption.title">
-            </button>
-          </div>
+          <label>
+            <input type="checkbox" x-on:click="window.inclue.handleOption(orientationOption.name, $event.target.checked)" :value="orientationOption.name" x-model="checkedOrientationOptions">
+          </label>
         </template>
       </div>
     </div>

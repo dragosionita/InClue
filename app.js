@@ -18,17 +18,27 @@ window.inclue = {
         description:
           " This profile adjusts the website, so that it is accessible to the majority of visual impairments such as Degrading Eyesight, Tunnel Vision, Cataract, Glaucoma, and others. ",
       },
+      {
+        name: "adhd",
+        title: "ADHD Friendly Profile",
+        subTitle: "More focus and fewer distractions",
+        description: " This profile significantly reduces distractions, to help people with ADHD and Neurodevelopmental disorders browse, read, and focus on the essential elements of the website more easily. "
+      }
     ],
     checkedOptions: [],
     colorOptions: [
       {
         name: "monochrome",
-        title: "Monochrome",
+        title: "Monochromea",
       },
       {
         name: "lightContrast",
         title: "Light Contrast",
       },
+      {
+        name: "darkContrast",
+        title: "Dark Contrast"
+      }
     ],
     checkedColorOptions: [],
     contentOptions: [
@@ -40,6 +50,22 @@ window.inclue = {
         name: "center",
         title: "Align Center",
       },
+      {
+        name: "left",
+        title: "Align Left"
+      },
+      {
+        name: "right",
+        title: "Align Right"
+      },
+      {
+        name: "lineHeight",
+        title: "Adjust Line Height"
+      },
+      {
+        name: "letterSpacing",
+        title: "Adjust Letter Spacing"
+      }
     ],
     checkedContentOptions: [],
     orientationOptions: [
@@ -51,8 +77,16 @@ window.inclue = {
         name: "cursorWhite",
         title: "Big White Cursor",
       },
+      {
+        name: "hideImages",
+        title: "Hide Images",
+      },
+      {
+        name: "readingGuide",
+        title: "Reading Guide",
+      },
     ],
-    checkedOrientationColorOptions: [],
+    checkedOrientationOptions: [],
   },
   handleOption: function (fnName, value) {
     var fn = window.inclue.features[fnName];
@@ -91,6 +125,42 @@ window.inclue = {
           }
         }
       }
+    },
+    monochrome: function(toggle) {
+    },
+    lightContrast: function(toggle) {
+    },
+    darkContrast: function(toggle) {
+    },
+    magnifier: function(toggle) {
+
+    },
+    center: function(toggle) {
+
+    },
+    left: function(toggle) {
+
+    },
+    right: function(toggle) {
+
+    },
+    lineHeight: function(toggle) {
+
+    }, 
+    letterSpacing: function(toggle) {
+
+    },
+    cursorBlack: function(toggle) {
+
+    },
+    cursorWhite: function(toggle) {
+
+    },
+    hideImages: function(toggle) {
+
+    },
+    readingGuide: function(toggle) {
+
     },
   },
   init: function (params) {
