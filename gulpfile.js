@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var concat = require('gulp-concat');
 var minify = require('gulp-minify');
 var cleanCss = require('gulp-clean-css');
+var sass = require('gulp-sass')(require('sass'));
 var browserSync = require('browser-sync').create();
 
 gulp.task('browser-sync', function() {
@@ -25,7 +26,8 @@ gulp.task('pack-js', function () {
 });
  
 gulp.task('pack-style', function () {
-    return gulp.src(['inclue.css'])
+    return gulp.src(['inclue.scss'])
+        .pipe(sass())
         .pipe(cleanCss())
         .pipe(gulp.dest('build'));
 });
@@ -36,7 +38,7 @@ gulp.task('serve', gulp.series['pack-style'], function() {
       server: "./app"
   });
 
-  gulp.watch("*.css", ['pack-style']);
+  gulp.watch("*.scss", ['pack-style']);
   gulp.watch("*.html").on('change', browserSync.reload);
   gulp.watch("*.js", ['pack-js']);
 });
@@ -53,7 +55,7 @@ gulp.task('serve', function(done){
           baseDir: "./"
       }
   });
-  gulp.watch("./*.css", gulp.series('pack-style', 'reload'));
+  gulp.watch("./*.scss", gulp.series('pack-style', 'reload'));
   gulp.watch("./*.html", browserSync.reload);
   done();
 });
