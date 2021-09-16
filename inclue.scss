@@ -102,18 +102,19 @@ body {
   border: 1px solid #dcdce6;
   border-radius: 3px;
   box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%), 0 3px 10px 0 rgb(0 0 0 / 19%);
-}
 
-.icl-option-button:hover {
-  border: 2px solid #2b6cb0;
-}
+  &:hover {
+    color: white;
+    background-color: #2b6cb0;
+    border: 2px solid #2b6cb0;
+  }
 
-.icl-option-button:active {
-  color: white;
-  background-color: #2b6cb0;
-  border: 2px solid #2b6cb0;
+  &:active {
+    color: white;
+    background-color: #2c5282;
+    border: 2px solid #2c5282;
+  }
 }
-
 
 /*** switches */
 

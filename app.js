@@ -23,6 +23,7 @@ window.inclue = {
       name: 'lightContrast',
       title: 'Light Contrast',
     }],
+    checkedColorOptions: [],
     contentOptions: [{
       name: 'magnifier',
       title: 'Text Magnifier'
@@ -31,6 +32,7 @@ window.inclue = {
       name: 'center',
       title: 'Align Center',
     }],
+    checkedContentOptions: [],
     orientationOptions: [{
       name: 'cursorBlack',
       title: 'Big Black Cursor'
@@ -39,6 +41,7 @@ window.inclue = {
       name: 'cursorWhite',
       title: 'Big White Cursor',
     }],
+    checkedOrientationColorOptions: [],
   },
   init: function (params) {
     this.loadVendors();
