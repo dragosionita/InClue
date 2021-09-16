@@ -164,6 +164,15 @@ body {
   }
 }
 
+.icl-d-flex {
+  display: flex;
+  align-items: center;
+}
+
+.icl-option-container {
+  padding-left: 20px;
+}
+
 /*** switches */
 
 .switch {
