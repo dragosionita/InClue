@@ -17,19 +17,19 @@ gulp.task("browser-sync", function () {
 
 gulp.task("pack-js", function () {
   var fileContent = fs.readFileSync("app.html", "utf8");
-  return (
-    gulp
-      .src(["app.js"])
-      .pipe(minify({
-          ext:{
-              min:'.js'
-          },
-          noSource: true,
-          mangle: true
-      }))
-      .pipe(replace("$APP_TEMPLATE$", fileContent))
-      .pipe(gulp.dest("build"))
-  );
+  return gulp
+    .src(["app.js"])
+    .pipe(replace("$APP_TEMPLATE$", fileContent))
+    .pipe(
+      minify({
+        ext: {
+          min: ".js",
+        },
+        noSource: true,
+        mangle: true,
+      })
+    )
+    .pipe(gulp.dest("build"));
 });
 
 gulp.task("pack-style", function () {

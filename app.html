@@ -4,7 +4,7 @@
   </div>
   <div class="inclue-widget" x-show="open" x-transition @click.outside="open = false">
     <div class="inclue-widget-header">
-      <h2>Accessibility Adjustments</h2>
+      <h2>ZZccessibility Adjustmentsa</h2>
     </div>
     <div class="inclue-widget-body" x-data="window.inclue.data">
       <template x-for="option in options">
@@ -13,17 +13,16 @@
               <input type="checkbox" :value="option.name" x-model="checkedOptions">
               <span class="slider round"></span>
             </label>
-            <h4 class="option-title" x-text="option.title"></h4>
-            <p class="option-title" x-text="option.subTitle"></p>
-            <div x-data x-show="checkedOptions.includes(option.name)" x-transition>
+            <div x-data class="icl-option-title">
+              <h4 x-text="option.title"></h4>
+              <p x-text="option.subTitle"></p>
+            </div>
+            <div class="icl-option-description" x-data x-show="checkedOptions.includes(option.name)" x-transition>
               <p x-text="option.description"></p>
             </div>
           </div>
       </template>
 
-      <span x-text="JSON.stringify(checkedOptions)"></span>
-      
-    <p>sss</p>
     </div>
   </span>
 </div>

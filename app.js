@@ -14,7 +14,9 @@ window.inclue = {
       subTitle: 'Enhances the website\'s visuals',
       description: ' This profile adjusts the website, so that it is accessible to the majority of visual impairments such as Degrading Eyesight, Tunnel Vision, Cataract, Glaucoma, and others. '
     }],
-    checkedOptions: ['vvv']
+    checkedOptions: [],
+    colorOptions: [{
+    }],
   },
   init: function (params) {
     this.loadVendors();
