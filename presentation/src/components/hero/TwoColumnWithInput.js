@@ -8,7 +8,8 @@ import Header from "../headers/light.js";
 
 import { ReactComponent as SvgDecoratorBlob1 } from "../../images/svg-decorator-blob-1.svg";
 import DesignIllustration from "../../images/landing-illustration.svg";
-import CustomersLogoStripImage from "../../images/brands-banner.svg";
+import CustomersLogoStripImage from "../../images/banner_hackathon.jpg";
+import { SectionHeading, Subheading } from "components/misc/Headings.js";
 
 const Container = tw.div `relative`;
 const TwoColumn = tw.div `flex flex-col lg:flex-row lg:items-center max-w-screen-xl mx-auto py-20 md:py-24`;
@@ -62,10 +63,10 @@ export default ({ roundedHeaderButton }) => {
               <input type="text" placeholder="Your E-mail Address" />
               <button>Get Started</button>
             </Actions>
-            <CustomersLogoStrip>
+            {/* <CustomersLogoStrip>
               <p>Our TRUSTED Customers</p>
               <img src={CustomersLogoStripImage} alt="Our Customers" />
-            </CustomersLogoStrip>
+            </CustomersLogoStrip> */}
           </LeftColumn>
           <RightColumn>
             <IllustrationContainer>
@@ -73,7 +74,10 @@ export default ({ roundedHeaderButton }) => {
             </IllustrationContainer>
           </RightColumn>
         </TwoColumn>
-        <DecoratorBlob1 />
+        <SectionHeading tw="text-center text-xl">
+          <p>Our Trusted Customers</p>
+        </SectionHeading>
+        <img tw="w-full max-w-screen-xl p-3 mx-auto" src={CustomersLogoStripImage} alt="customers logos" />
       </Container>
     </>
   );

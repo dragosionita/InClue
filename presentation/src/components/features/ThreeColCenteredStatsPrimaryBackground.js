@@ -21,7 +21,7 @@ const Description = tw(
   SectionDescription
 )`text-gray-400 text-center mx-auto max-w-screen-md`;
 
-const StatsContainer = tw.div`mt-8 flex flex-col sm:flex-row items-center justify-center flex-wrap max-w-screen-md justify-between mx-auto`;
+const StatsContainer = tw.div`mt-8 flex flex-row items-center justify-center flex-wrap max-w-screen-lg justify-between mx-auto`;
 const Stat = tw.div`flex flex-col text-center p-4 tracking-wide`;
 const StatKey = tw.div`text-xl font-medium`;
 const StatValue = tw.div`text-4xl sm:text-3xl md:text-4xl lg:text-5xl font-black`;
@@ -32,16 +32,16 @@ export default ({
   description = "Making the web accessible is about leveling the playground for 20% of the world's population. Imagine what society gain if 1.5 Billion (!) people who are as smart, as talented, and as driven as anybody, get access to the world's largest resource pool - the Internet.",
   stats = [
     {
-      key: "Clients",
-      value: "2500+",
+      key: "Disabled People",
+      value: "1.5B",
     },
     {
-      key: "Revenue",
-      value: "$100M+",
+      key: "Blindness And Visual Impairment",
+      value: "253M",
     },
     {
-      key: "Employees",
-      value: "150+",
+      key: "Intellectual Disability",
+      value: "200M",
     },
   ],
 }) => {
