@@ -146,42 +146,43 @@ body {
 .inclue-widget {
   text-align: initial !important;
   overflow: scroll;
-  height: 600px;
+  height: 600px !important;
   position: absolute;
-  width: 400px;
-  right: 1rem;
-  bottom: 6rem;
+  width: 400px !important;
+  right: 1rem !important;
+  bottom: 6rem !important;
   border-radius: 4px;
-  background-color: #f7fcff;
+  background-color: #f7fcff !important;
   box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
 }
 
 /*** header */
 .inclue-widget-header {
   text-align: center;
-  background-color: #146FF8;
-  color: white;
+  background-color: #146FF8 !important;
+  color: white !important;
   margin: 0;
   padding: 16px;
-  position: sticky;
-  top: 0;
-  z-index: 1;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1 !important;
 }
 
 /*** footer */
 .inclue-widget-footer {
   text-align: center;
-  background-color: #146FF8;
+  background-color: #146FF8 !important;
   margin: 0;
   padding: 8px;
-  color: white;
-  position: sticky;
-  bottom: 0;
-  z-index: 1;
+  color: white !important;
+  position: sticky !important;
+  bottom: 0 !important;
+  z-index: 1 !important;
 
   a {
-    color: white;
+    color: white !important;
     text-decoration: none;
+    font-size: 16px !important;
   }
 }
 
@@ -192,13 +193,13 @@ body {
 /*** body */
 .inclue-widget-body {
   padding: 8px 14px 8px 14px;
-  background-color: #f2f7fa;
+  background-color: #f2f7fa !important;
 }
 
 /*** options */
 .icl-section-card {
-  background-color: white;
-  border: 1px solid white;
+  background-color: white !important;
+  border: 1px solid white !important;
   border-radius: 5px;
   box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%), 0 3px 10px 0 rgb(0 0 0 / 19%);
   margin: 14px 0 24px 0;
@@ -209,7 +210,8 @@ body {
   text-align: center;
   margin: 0;
   margin-top: 14px;
-  margin-bottom: 4px;
+  margin-bottom: 15px;
+  font-size: 18px !important;
 }
 
 .access-option {
@@ -227,7 +229,13 @@ body {
   margin: 0;
   float: right;
 
-  p, h4 {
+  h4 {
+    font-size: 16px !important;
+    margin: 0;
+  }
+
+  p {
+    font-size: 14px !important;
     margin: 0;
   }
 }
@@ -237,12 +245,17 @@ body {
   
   p {
     margin: 0;
+    font-size: 16px !important;
   }
 }
 
 .icl-d-flex {
   display: flex;
   align-items: center;
+}
+
+.icl-row {
+  grid-row: 1;
 }
 
 .icl-option-container {
@@ -314,9 +327,10 @@ input:checked + .slider:before {
 
 /*** button checkboxes */
 /* The container */
-.container {
+.icl-container {
   padding: 10px;
-  margin-bottom: 12px;
+  display: inline !important;
+  padding-bottom: 12px;
   cursor: pointer;
   font-size: 22px;
   -webkit-user-select: none;
@@ -326,7 +340,7 @@ input:checked + .slider:before {
 }
 
 /* Hide the browser's default checkbox */
-.container input {
+.icl-container input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
@@ -335,17 +349,17 @@ input:checked + .slider:before {
 }
 
 /* Create a custom checkbox */
-.checkmark {
-  display: inline-block;
-  height: 110px;
-  width: 145px;
+.icl-checkmark {
+  display: inline-block !important;
+  height: 110px !important;
+  width: 145px !important;
   background-color: #f2f7fa;
   border: 2px solid #f2f7fa;
   border-radius: 4px;
-  text-align: center;
+  text-align: center !important;
   font-size: 16px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
 }
 
 .icl-d-flex-center {
@@ -359,36 +373,37 @@ input:checked + .slider:before {
 
 .icl-checkmark-text {
   padding-top: 10px;
+  font-size: 16px !important;
 }
 
 /* On mouse-over, add a grey background color */
-.container:hover input ~ .checkmark {
-  background-color: #f2f7fa;
-  border: 2px solid #146FF8;
+.icl-container:hover input ~ .icl-checkmark {
+  background-color: #f2f7fa !important;
+  border: 2px solid #146FF8 !important;
 }
 
 /* When the checkbox is checked, add a blue background */
-.container input:checked ~ .checkmark {
-  background-color: #146FF8;
-  border: 2px solid #146FF8;
-  color: white;
+.icl-container input:checked ~ .icl-checkmark {
+  background-color: #146FF8 !important;
+  border: 2px solid #146FF8 !important;
+  color: white !important;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
-.checkmark:after {
+.icl-checkmark:after {
   content: "";
   position: absolute;
   display: none;
 }
 
 /* Show the checkmark when checked */
-.container input:checked ~ .checkmark:after {
+.icl-container input:checked ~ .icl-checkmark:after {
   display: block;
-  color: white;
+  color: white !important;
 }
 
 /* Style the checkmark/indicator */
-.container .checkmark:after {
+.icl-container .icl-checkmark:after {
   left: 9px;
   top: 5px;
   width: 5px;

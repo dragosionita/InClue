@@ -4,21 +4,21 @@
   </div>
   <div class="inclue-widget" x-show="open" x-transition @click.outside="open = false">
     <div class="inclue-widget-header">
-      <h2>Accessibility Adjustments</h2>
+      <h2 style="font-size: 20px; color: white;">Accessibility Adjustments</h2>
     </div>
     <div class="inclue-widget-body" x-data="window.inclue.data">
       <div x-data class="icl-section-card">
         <h3 class="icl-section-title">Accessibility profile</h3>
         <template x-for="option in options">
             <div x-data class="access-option">
-              <div x-data class="row icl-d-flex">
-                <div class="col-3">
+              <div x-data class="icl-row icl-d-flex">
+                <div>
                   <label class="switch">
                     <input type="checkbox" x-on:click="window.inclue.handleOption(option.name, $event.target.checked)" :value="option.name" x-model="checkedOptions">
                     <span class="slider round"></span>
                   </label>
                 </div>
-                <div class="col-8 icl-option-container">
+                <div class="icl-option-container">
                   <div x-data class="icl-option-title">
                     <h4 x-text="option.title"></h4>
                     <p x-text="option.subTitle"></p>
@@ -35,9 +35,9 @@
       <div x-data class="icl-section-card">
         <h3 class="icl-section-title">Color Adjustments</h3>
         <template x-for="colorOption in colorOptions">
-          <label class="container">
+          <label class="icl-container">
             <input type="checkbox" checked="checked" x-on:click="window.inclue.handleOption(colorOption.name, $event.target.checked)" :value="colorOption.name" x-model="checkedColorOptions" x-transition>
-            <div class="checkmark">
+            <div class="icl-checkmark">
               <div class="icl-d-flex-center">
                 <span x-html="colorOption.svg"></span>
                 <span class="icl-checkmark-text" x-text="colorOption.title"></span>
@@ -50,9 +50,9 @@
       <div x-data class="icl-section-card">
         <h3 class="icl-section-title">Content Adjustments</h3>
         <template x-for="contentOption in contentOptions">
-          <label  class="container">
+          <label  class="icl-container">
             <input type="checkbox" checked="checked" x-on:click="window.inclue.handleOption(contentOption.name, $event.target.checked)" :value="contentOption.name" x-model="checkedContentOptions">
-            <div class="checkmark">
+            <div class="icl-checkmark">
               <div class="icl-d-flex-center">
                 <span x-html="contentOption.svg"></span>
                 <span class="icl-checkmark-text" x-text="contentOption.title"></span>
@@ -65,9 +65,9 @@
       <div x-data class="icl-section-card">
         <h3 class="icl-section-title">Orientation Adjustments</h3>
         <template x-for="orientationOption in orientationOptions">
-          <label  class="container">
+          <label  class="icl-container">
             <input type="checkbox" checked="checked" x-on:click="window.inclue.handleOption(orientationOption.name, $event.target.checked)" :value="orientationOption.name" x-model="checkedOrientationOptions">
-            <div class="checkmark">
+            <div class="icl-checkmark">
               <div class="icl-d-flex-center">
                 <span x-html="orientationOption.svg"></span>
                 <span class="icl-checkmark-text" x-text="orientationOption.title"></span>
@@ -78,7 +78,7 @@
       </div>
     </div>
     <div class="inclue-widget-footer">
-      <a href="" class="icl-margin">Powered by InClue</a>
+      <a href="https://inclue.life/" target="_blank" class="icl-margin">Powered by InClue</a>
     </div>
   </span>
 </div>
