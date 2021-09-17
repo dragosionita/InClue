@@ -146,38 +146,38 @@ body {
 .inclue-widget {
   text-align: initial !important;
   overflow: scroll;
-  height: 600px;
+  height: 600px !important;
   position: absolute;
-  width: 400px;
-  right: 1rem;
-  bottom: 6rem;
+  width: 400px !important;
+  right: 1rem !important;
+  bottom: 6rem !important;
   border-radius: 4px;
-  background-color: #f7fcff;
+  background-color: #f7fcff !important;
   box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
 }
 
 /*** header */
 .inclue-widget-header {
   text-align: center;
-  background-color: #146FF8;
-  color: white;
+  background-color: #146FF8 !important;
+  color: white !important;
   margin: 0;
   padding: 16px;
-  position: sticky;
-  top: 0;
-  z-index: 1;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1 !important;
 }
 
 /*** footer */
 .inclue-widget-footer {
   text-align: center;
-  background-color: #146FF8;
+  background-color: #146FF8 !important;
   margin: 0;
   padding: 8px;
-  color: white;
-  position: sticky;
-  bottom: 0;
-  z-index: 1;
+  color: white !important;
+  position: sticky !important;
+  bottom: 0 !important;
+  z-index: 1 !important;
 
   a {
     color: white;
@@ -192,13 +192,13 @@ body {
 /*** body */
 .inclue-widget-body {
   padding: 8px 14px 8px 14px;
-  background-color: #f2f7fa;
+  background-color: #f2f7fa !important;
 }
 
 /*** options */
 .icl-section-card {
-  background-color: white;
-  border: 1px solid white;
+  background-color: white !important;
+  border: 1px solid white !important;
   border-radius: 5px;
   box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%), 0 3px 10px 0 rgb(0 0 0 / 19%);
   margin: 14px 0 24px 0;
@@ -336,16 +336,16 @@ input:checked + .slider:before {
 
 /* Create a custom checkbox */
 .checkmark {
-  display: inline-block;
-  height: 110px;
-  width: 145px;
+  display: inline-block !important;
+  height: 110px !important;
+  width: 145px !important;
   background-color: #f2f7fa;
   border: 2px solid #f2f7fa;
   border-radius: 4px;
-  text-align: center;
+  text-align: center !important;
   font-size: 16px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
 }
 
 .icl-d-flex-center {
