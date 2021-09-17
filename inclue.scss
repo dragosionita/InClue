@@ -254,6 +254,10 @@ body {
   align-items: center;
 }
 
+.icl-row {
+  grid-row: 1;
+}
+
 .icl-option-container {
   padding-left: 20px;
 }
@@ -323,7 +327,7 @@ input:checked + .slider:before {
 
 /*** button checkboxes */
 /* The container */
-.container {
+.icl-container {
   padding: 10px;
   margin-bottom: 12px;
   cursor: pointer;
@@ -335,7 +339,7 @@ input:checked + .slider:before {
 }
 
 /* Hide the browser's default checkbox */
-.container input {
+.icl-container input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
@@ -344,7 +348,7 @@ input:checked + .slider:before {
 }
 
 /* Create a custom checkbox */
-.checkmark {
+.icl-checkmark {
   display: inline-block !important;
   height: 110px !important;
   width: 145px !important;
@@ -372,33 +376,33 @@ input:checked + .slider:before {
 }
 
 /* On mouse-over, add a grey background color */
-.container:hover input ~ .checkmark {
+.icl-container:hover input ~ .icl-checkmark {
   background-color: #f2f7fa !important;
   border: 2px solid #146FF8 !important;
 }
 
 /* When the checkbox is checked, add a blue background */
-.container input:checked ~ .checkmark {
+.icl-container input:checked ~ .icl-checkmark {
   background-color: #146FF8 !important;
   border: 2px solid #146FF8 !important;
   color: white !important;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
-.checkmark:after {
+.icl-checkmark:after {
   content: "";
   position: absolute;
   display: none;
 }
 
 /* Show the checkmark when checked */
-.container input:checked ~ .checkmark:after {
+.icl-container input:checked ~ .icl-checkmark:after {
   display: block;
   color: white !important;
 }
 
 /* Style the checkmark/indicator */
-.container .checkmark:after {
+.icl-container .icl-checkmark:after {
   left: 9px;
   top: 5px;
   width: 5px;
