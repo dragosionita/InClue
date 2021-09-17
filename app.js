@@ -11,7 +11,13 @@ window.inclue = {
       var tooltip = document.querySelector(".icl-tooltip");
       setTimeout(function () {
         if (
-          event.target.tagName == "P" &&
+          (event.target.tagName == "P" || 
+          event.target.tagName == "H1" || 
+          event.target.tagName == "H2" || 
+          event.target.tagName == "H3" || 
+          event.target.tagName == "H6" || 
+          event.target.tagName == "A" || 
+          event.target.tagName == "SPAN") &&
           event.target.firstChild.nodeValue.trim().length > 2
         ) {
           var mouseX = event.clientX;
@@ -35,7 +41,7 @@ window.inclue = {
     },
     readingGuide: function (event) {
       var readingGuide = document.querySelector(".icl-reading-guide");
-      readingGuide.style.top = event.clientY + 150 + 'px';
+      readingGuide.style.top = event.clientY - 15 + 'px';
       readingGuide.style.left = event.clientX + 'px';
     },
   },
@@ -293,7 +299,6 @@ window.inclue = {
     checkedOrientationOptions: [],
   },
   handleOption: function (fnName, value) {
-    console.log("0000", fnName);
     var fn = this.features[fnName];
     fn(value);
   },
@@ -309,7 +314,6 @@ window.inclue = {
       if (toggle) {
         var elements = document.body.childNodes;
         for (var i = 0; i < elements.length; i++) {
-          console.log("elements[i].tagName", elements[i].tagName);
           if (
             elements[i].tagName == "DIV" &&
             !elements[i].classList.contains("inclue-app")

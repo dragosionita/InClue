@@ -44,7 +44,7 @@ body {
   text-align: left !important;
 }
 
-.icl-text-align-right {
+.icl-text-align-right{
   text-align: right !important;
 }
 
@@ -97,10 +97,10 @@ body {
   display: none;
   box-sizing: border-box;
   background: #000;
-  width: 40vw!important;
-  min-width: 200px!important;
-  position: absolute!important;
-  height: 12px!important;
+  width: 40vw !important;
+  min-width: 200px !important;
+  position: fixed !important;
+  height: 12px !important;
   border: solid 3px #fff300;
   border-radius: 5px;
   top: 20px;
@@ -120,8 +120,9 @@ body {
 
 .inclue-app {
   position: fixed;
+  z-index: 999999;
   display: block;
-  bottom: 0;
+  bottom: 100px;
   right: 0;
 
   .inclue-trigger {
@@ -142,6 +143,7 @@ body {
 }
 
 .inclue-widget {
+  text-align: initial !important;
   overflow: scroll;
   height: 550px;
   position: absolute;
