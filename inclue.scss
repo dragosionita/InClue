@@ -124,6 +124,7 @@ body {
   display: block;
   bottom: 100px;
   right: 0;
+  font-family: Tahoma !important;
 
   .inclue-trigger {
     width: 50px;
@@ -145,7 +146,7 @@ body {
 .inclue-widget {
   text-align: initial !important;
   overflow: scroll;
-  height: 550px;
+  height: 600px;
   position: absolute;
   width: 400px;
   right: 1rem;
@@ -158,16 +159,40 @@ body {
 /*** header */
 .inclue-widget-header {
   text-align: center;
-  background-color: #77a6f7;
+  background-color: #146FF8;
   color: white;
   margin: 0;
   padding: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+/*** footer */
+.inclue-widget-footer {
+  text-align: center;
+  background-color: #146FF8;
+  margin: 0;
+  padding: 8px;
+  color: white;
+  position: sticky;
+  bottom: 0;
+  z-index: 1;
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.icl-margin {
+  margin: 0;
 }
 
 /*** body */
 .inclue-widget-body {
   padding: 8px 14px 8px 14px;
-  background-color: #d3e3fc;
+  background-color: #f2f7fa;
 }
 
 /*** options */
@@ -265,7 +290,7 @@ body {
 }
 
 input:checked + .slider {
-  background-color: #77a6f7;
+  background-color: #146FF8;
 }
 
 input:focus + .slider {
@@ -312,10 +337,10 @@ input:checked + .slider:before {
 /* Create a custom checkbox */
 .checkmark {
   display: inline-block;
-  height: 100px;
+  height: 110px;
   width: 145px;
-  background-color: #dcdce6;
-  border: 1px solid #dcdce6;
+  background-color: #f2f7fa;
+  border: 2px solid #f2f7fa;
   border-radius: 4px;
   text-align: center;
   font-size: 16px;
@@ -338,15 +363,14 @@ input:checked + .slider:before {
 
 /* On mouse-over, add a grey background color */
 .container:hover input ~ .checkmark {
-  background-color: #dcdce6;
-  border: 1px solid #77a6f7;
-  box-shadow: 0 2px 4px 0 #77a6f7, 0 3px 10px 0 #77a6f7;
+  background-color: #f2f7fa;
+  border: 2px solid #146FF8;
 }
 
 /* When the checkbox is checked, add a blue background */
 .container input:checked ~ .checkmark {
-  background-color: #77a6f7;
-  border: 1px solid #77a6f7;
+  background-color: #146FF8;
+  border: 2px solid #146FF8;
   color: white;
 }
 
