@@ -9,7 +9,7 @@ from calculation import get_response
 app = FastAPI(openapi_url="/openapi.json")
 
 # pre-define the max sequence length (from training)
-MAX_LENGTH = 12
+MAX_LENGTH = 8
 
 
 @app.post("/photo_caption", response_model=Response)
