@@ -109,6 +109,9 @@ export default ({ roundedHeaderButton }) => {
               Don't just do it to be compliant, do it because it's the right
               thing to do.
             </Paragraph>
+            <SectionHeading tw="text-left ml-4 mb-2 text-xl">
+              <p>Try it now!</p>
+            </SectionHeading>
             <Actions>
               <input
                 type="url"
