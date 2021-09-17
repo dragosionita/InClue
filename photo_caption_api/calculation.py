@@ -74,17 +74,20 @@ def get_response(model, tokenizer, max_length, input_req: Request) -> Response:
 
 	images = []
 	for img_url in input_req.images:
-		response = requests.get(img_url)
-		if response.status_code != 200:
+		try:
+			response = requests.get(img_url)
+			if response.status_code != 200:
+				continue
+			# load and prepare the photograph
+			photo = extract_features(response.content, vgg)
+			# generate description
+			description = generate_desc(model, tokenizer, photo, max_length)
+			description = ' '.join(description.split(' ')[1:-1])
+			images.append(ImageResponse(
+				image=img_url,
+				description=description,
+				tags=description.split(' ')
+			))
+		except Exception:
 			continue
-		# load and prepare the photograph
-		photo = extract_features(response.content, vgg)
-		# generate description
-		description = generate_desc(model, tokenizer, photo, max_length)
-		description = ' '.join(description.split(' ')[1:-1])
-		images.append(ImageResponse(
-			image=img_url,
-			description=description,
-			tags=description.split(' ')
-		))
 	return Response(images=images)
