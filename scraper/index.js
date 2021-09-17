@@ -62,18 +62,27 @@ class Scraper {
       .map(img => img.getAttribute(tag))
       .filter(uniqueOnly)
       .forEach((img) => {
-        let imgUrl = 'https:' + img.match(/\/\/[^ ]+?(?:\.jpg|\.png|\.jpeg)/g);
+        let imgUrl = img.match(/\/\/[^ ]+?(?:\.jpg|\.png|\.jpeg)/g);
         console.log(imgUrl);
-        if(Array.isArray(imgUrl)) {
-          imageUrls.push(imgUrl[3]);
-        } else {
-          imgUrl.split(',').forEach(im => {
-            if(!im.startsWith('http') && !im.startsWith('https') && im != null) {
-              imageUrls.push('https:' + im);
+        if (imgUrl) {
+          if (Array.isArray(imgUrl)) {
+            if (!imgUrl[0].startsWith('http') && !imgUrl[0].startsWith('https') && imgUrl[0] != null) {
+              imageUrls.push('https:' + imgUrl[0]);
             } else {
-              imageUrls.push(im);
+              imageUrls.push(imgUrl[0]);
             }
-          })
+          } else {
+            imgUrl.split(',').forEach(im => {
+              if (!im.startsWith('http') && !im.startsWith('https') && im != null) {
+                console.log(im);
+                if (im) {
+                  imageUrls.push('https:' + im);
+                }
+              } else {
+                imageUrls.push(im);
+              }
+            })
+          }
         }
     });
     
