@@ -78,8 +78,8 @@ export default ({
   imageBorder = false,
   imageShadow = false,
   subheading = "Testimonials",
-  heading = "Our Clients Love Us.",
-  description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam.",
+  heading = "Bridging the gap for our clients",
+  description = "The premise that all your customers are all able people is wrong. Here your customers",
   textOnLeft = false,
   testimonials = [
     {
@@ -120,11 +120,6 @@ export default ({
             <TestimonialSlider arrows={false} ref={setSliderRef}>
               {testimonials.map((testimonial, index) => (
                 <Testimonial key={index}>
-                  <StarsContainer>
-                    {Array.from({ length: testimonial.stars }).map((_,indexIcon) => (
-                      <StarIcon key={indexIcon} />
-                    ))}
-                  </StarsContainer>
                   <TestimonialHeading>{testimonial.heading}</TestimonialHeading>
                   <Quote>{testimonial.quote}</Quote>
                   <CustomerInfoAndControlsContainer>

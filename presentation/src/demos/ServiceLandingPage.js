@@ -50,15 +50,10 @@ export default () => {
             Easily installed in <HighlightedText>2-minutes</HighlightedText> on any CMS or web hosting platform
           </>
         }
+        description={<></>}
       />{" "}
       <Testimonial
         textOnLeft={true}
-        heading={
-          <>
-            {" "}
-            Our Clients <HighlightedText> Love Us </HighlightedText>{" "}
-          </>
-        }
       />{" "}
       <Pricing
         heading={
