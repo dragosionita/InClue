@@ -145,7 +145,7 @@ body {
   overflow: scroll;
   height: 550px;
   position: absolute;
-  width: 390px;
+  width: 400px;
   right: 1rem;
   bottom: 5rem;
   border-radius: 4px;
@@ -156,7 +156,7 @@ body {
 /*** header */
 .inclue-widget-header {
   text-align: center;
-  background-color: #2b6cb0;
+  background-color: #77a6f7;
   color: white;
   margin: 0;
   padding: 16px;
@@ -165,15 +165,17 @@ body {
 /*** body */
 .inclue-widget-body {
   padding: 8px 14px 8px 14px;
+  background-color: #d3e3fc;
 }
 
 /*** options */
 .icl-section-card {
+  background-color: white;
   border: 1px solid white;
   border-radius: 5px;
   box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%), 0 3px 10px 0 rgb(0 0 0 / 19%);
   margin: 14px 0 24px 0;
-  padding: 10px;
+  padding: 10px 10px 20px 10px;
 }
 
 .icl-section-title {
@@ -261,7 +263,7 @@ body {
 }
 
 input:checked + .slider {
-  background-color: #2b6cb0;
+  background-color: #77a6f7;
 }
 
 input:focus + .slider {
@@ -309,23 +311,40 @@ input:checked + .slider:before {
 .checkmark {
   display: inline-block;
   height: 100px;
-  width: 150px;
+  width: 145px;
   background-color: #dcdce6;
   border: 1px solid #dcdce6;
   border-radius: 4px;
   text-align: center;
   font-size: 16px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.icl-d-flex-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  width: 145px;
+}
+
+.icl-checkmark-text {
+  padding-top: 10px;
 }
 
 /* On mouse-over, add a grey background color */
 .container:hover input ~ .checkmark {
   background-color: #dcdce6;
+  border: 1px solid #77a6f7;
+  box-shadow: 0 2px 4px 0 #77a6f7, 0 3px 10px 0 #77a6f7;
 }
 
 /* When the checkbox is checked, add a blue background */
 .container input:checked ~ .checkmark {
-  background-color: #2b6cb0;
-  border: 1px solid #2b6cb0;
+  background-color: #77a6f7;
+  border: 1px solid #77a6f7;
   color: white;
 }
 

@@ -37,7 +37,12 @@
         <template x-for="colorOption in colorOptions">
           <label class="container">
             <input type="checkbox" checked="checked" x-on:click="window.inclue.handleOption(colorOption.name, $event.target.checked)" :value="colorOption.name" x-model="checkedColorOptions" x-transition>
-            <span class="checkmark" x-text="colorOption.title"></span>
+            <div class="checkmark">
+              <div class="icl-d-flex-center">
+                <span x-html="colorOption.svg"></span>
+                <span class="icl-checkmark-text" x-text="colorOption.title"></span>
+              </div>
+            </div>
           </label>
         </template>
       </div>
@@ -47,7 +52,12 @@
         <template x-for="contentOption in contentOptions">
           <label  class="container">
             <input type="checkbox" checked="checked" x-on:click="window.inclue.handleOption(contentOption.name, $event.target.checked)" :value="contentOption.name" x-model="checkedContentOptions">
-            <span class="checkmark" x-text="contentOption.title"></span>
+            <div class="checkmark">
+              <div class="icl-d-flex-center">
+                <span x-html="contentOption.svg"></span>
+                <span class="icl-checkmark-text" x-text="contentOption.title"></span>
+              </div>
+            </div>
           </label>
         </template>
       </div>
@@ -57,7 +67,12 @@
         <template x-for="orientationOption in orientationOptions">
           <label  class="container">
             <input type="checkbox" checked="checked" x-on:click="window.inclue.handleOption(orientationOption.name, $event.target.checked)" :value="orientationOption.name" x-model="checkedOrientationOptions">
-            <span class="checkmark" x-text="orientationOption.title"></span>
+            <div class="checkmark">
+              <div class="icl-d-flex-center">
+                <span x-html="orientationOption.svg"></span>
+                <span class="icl-checkmark-text" x-text="orientationOption.title"></span>
+              </div>
+            </div>
           </label>
         </template>
       </div>
