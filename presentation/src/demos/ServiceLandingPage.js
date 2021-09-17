@@ -14,6 +14,8 @@ import GetStarted from "components/cta/GetStartedLight.js";
 import Footer from "components/footers/MiniCenteredFooter.js";
 
 import EasyInstallImg from "../images/setup.svg";
+import { ReactComponent as OneIcon } from "../images/round.svg";
+import { ReactComponent as TwoIcon } from "../images/2.svg";
 
 
 const HighlightedText = tw.span`text-blue-500`;
@@ -51,6 +53,20 @@ export default () => {
           </>
         }
         description={<></>}
+        features={[
+          {
+            Icon: OneIcon,
+            title: "Copy your generated code",
+            description: "",
+            iconContainerCss: tw`bg-teal-300 text-teal-800`
+          },
+          {
+            Icon: TwoIcon,
+            title: "Paste in your app's HEAD tag",
+            description: "",
+            iconContainerCss: tw`bg-red-300 text-red-800`
+          },
+        ]}
       />{" "}
       <Testimonial
         textOnLeft={true}

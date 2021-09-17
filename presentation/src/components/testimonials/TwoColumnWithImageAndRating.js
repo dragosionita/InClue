@@ -11,6 +11,9 @@ import { ReactComponent as StarIconBase } from "images/star-icon.svg";
 import { ReactComponent as ArrowLeftIcon } from "images/arrow-left-3-icon.svg";
 import { ReactComponent as ArrowRightIcon } from "images/arrow-right-3-icon.svg";
 
+import FemaleAvatar from "images/undraw_female_avatar_w3jk.svg";
+import MaleAvarat from "images/undraw_male_avatar_323b.svg";
+
 const Row = tw.div `flex flex-col md:flex-row justify-between items-center`;
 const Column = tw.div `w-full max-w-md mx-auto md:max-w-none md:mx-0`;
 const ImageColumn = tw(Column)
@@ -79,28 +82,26 @@ export default ({
   imageShadow = false,
   subheading = "Testimonials",
   heading = "Bridging the gap for our clients",
-  description = "The premise that all your customers are all able people is wrong. Here your customers",
+  description = "The premise that all your customers are all able people is wrong.",
   textOnLeft = false,
   testimonials = [
     {
       stars: 5,
-      profileImageSrc:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3.25&w=512&h=512&q=80",
-      heading: "Amazing User Experience",
+      profileImageSrc: FemaleAvatar,
+      heading: "It's difficult to navigate and find buttons",
       quote:
-        "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
+      "I am visually impaired (legally blind). I have been trying to find the \"skip the month\" button for 2 whole days. I would like to skip this month. Can you please help me with this?",
       customerName: "Charlotte Hale",
-      customerTitle: "CEO, Delos Inc."
+      customerTitle: "Vision Impaired Customer"
     },
     {
       stars: 5,
-      profileImageSrc:
-        "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=512&h=512&q=80",
-      heading: "Love the Developer Experience and Design Principles !",
+      profileImageSrc: MaleAvarat,
+      heading: "There is so much content I can't focus",
       quote:
-        "Sinor Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+        "(...) do you offer shopping assistance? I am suffering from ADHD, and would like to purchase some lingerie for my fiancé.",
       customerName: "Adam Cuppy",
-      customerTitle: "Founder, EventsNYC"
+      customerTitle: "Customer with ADHD"
     }
   ]
 }) => {
@@ -114,7 +115,6 @@ export default ({
             <Image src={imageSrc} imageBorder={imageBorder} imageShadow={imageShadow} imageRounded={imageRounded} />
           </ImageColumn>
           <TextColumn textOnLeft={textOnLeft}>
-            <Subheading>{subheading}</Subheading>
             <Heading>{heading}</Heading>
             <Description>{description}</Description>
             <TestimonialSlider arrows={false} ref={setSliderRef}>
@@ -126,8 +126,8 @@ export default ({
                     <CustomerInfo>
                       <CustomerProfilePicture src={testimonial.profileImageSrc} alt={testimonial.customerName} />
                       <CustomerTextInfo>
-                        <CustomerName>{testimonial.customerName}</CustomerName>
-                        <CustomerTitle>{testimonial.customerTitle}</CustomerTitle>
+                        <CustomerName>{testimonial.customerTitle}</CustomerName>
+                        {/* <CustomerTitle>{testimonial.customerTitle}</CustomerTitle> */}
                       </CustomerTextInfo>
                     </CustomerInfo>
                     <Controls>

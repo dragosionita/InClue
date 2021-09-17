@@ -77,29 +77,29 @@ export default ({
     {
       imageSrc: ShieldIconImage,
       title: "Blind",
-      description: "Screen-reader optimization for blind users",
+      description: "Screen-reader optimization for blind users",
     },
     {
       imageSrc: SupportIconImage,
       title: "Motor Impaired",
-      description: "Keyboard-navigation  optimization for the motor impaired",
+      description: "Keyboard-navigation optimization for the motor impaired",
     },
     {
       imageSrc: CustomizeIconImage,
       title: "Cognitive Disorder",
       description:
-        "Comprehension adjustments for people with cognitive disorders",
+        "Comprehension adjustments for people with cognitive disorders",
     },
     {
       imageSrc: ReliableIconImage,
       title: "Epileptics",
       description:
-        "Stopping flashing animations to prevent epileptic seizures",
+        "Stopping flashing animations to prevent epileptic seizures",
     },
     {
       imageSrc: FastIconImage,
       title: "Vision Impaired",
-      description: "UI and design adjustments for the vision impaired",
+      description: "UI and design adjustments for the vision impaired",
     },
     {
       imageSrc: SimpleIconImage,

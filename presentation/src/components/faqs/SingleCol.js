@@ -52,19 +52,14 @@ export default ({
         "Our widget has been rigorously tested and optimized to ensure there is no impact on your site’s load time. Both the widget and the remediations to your site's code are done asynchronously after your site has finished loading."
     },
     {
-      question: "Do you have 2 Bedroom suites ?",
+      question: "What kind of disabilities do you cover?",
       answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-    },
-    {
-      question: "Are Wi-Fi costs included in the price ?",
-      answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        "InClue offers solutions for the Blind, Motor Impaired, Cognitive Disorder, Epileptics, Vision Impaired, Hearing Impaired"
     },
     {
       question: "Where can I reach you for support ?",
       answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        "You can reach us at support@inclue.com."
     }
   ]
 }) => {

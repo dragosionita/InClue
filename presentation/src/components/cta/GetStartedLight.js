@@ -36,7 +36,7 @@ export default ({
   subheading = "Interested in InClue?",
   heading = "Join the closed beta now.",
   primaryLinkText = "Get Started",
-  primaryLinkUrl = "http://timerse.com",
+  primaryLinkUrl = "/#generate-code",
   secondaryLinkText = "Contact Us",
   secondaryLinkUrl = "http://google.com",
   pushDownFooter = true,
